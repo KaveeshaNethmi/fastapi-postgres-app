@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   postgres:
     image: postgres:15
@@ -26,8 +24,6 @@ services:
       DATABASE_URL: postgres://postgres:postgres@postgres:5432/mydb
     ports:
       - "8000:8000"
-    volumes:
-      - ./fastapi-backend/app:/app/app
 
   frontend:
     build: ./frontend
@@ -35,8 +31,6 @@ services:
       - "3000:3000"
     depends_on:
       - fastapi-backend
-    volumes:
-      - ./frontend:/app
 
 volumes:
   postgres_data:
